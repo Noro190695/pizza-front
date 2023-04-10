@@ -136,17 +136,12 @@ function openMobileMenu(){
 openMobileMenu()
 
 function mobileScroll() {
-    let isScroll = false
-    window.addEventListener('scroll', (e) => {
-        if (window.scrollY < window.innerWidth && !isScroll) {
-            window.scrollBy({
-                top: window.innerWidth - 50,
-                behavior: "smooth"
-            })
-            isScroll = true
-        }
-        
-    })
+    let swiper = new Swiper('.mobile-content-slider', {
+        direction: 'vertical',
+        slidesPerColumn: '1',
+        freeMode: false,
+        mousewheel: true,
+      });
 }
 if (window.innerWidth < 1024) {
     mobileScroll()
