@@ -135,14 +135,20 @@ function openMobileMenu(){
 }
 openMobileMenu()
 
-function mobileScroll() {
-    let swiper = new Swiper('.mobile-content-slider', {
-        direction: 'vertical',
-        slidesPerColumn: '1',
-        freeMode: false,
-        mousewheel: true,
-      });
-}
-if (window.innerWidth < 1024) {
-    mobileScroll()
-}
+
+function mobileProductDropdown(){
+    const products = document.querySelectorAll('.mobile__product');
+   
+    if (!products.length) return;
+    products.forEach(product => {
+        const title = product.querySelector('.mobile__product_title');
+        console.log(title);
+        title.addEventListener('click', (e) => {
+            const info = product.querySelector('.mobile__product_info')
+            title.classList.toggle('mobile__product_title-opened')
+            info.classList.toggle('mobile__product_info-opened')
+        })
+    })
+}   
+
+mobileProductDropdown()
